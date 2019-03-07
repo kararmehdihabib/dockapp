@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker 
+
+
+before_install:
+  - docker build -t kararha/dockapp -f Dockerfile.dev .
+
+
+script: 
+  - docker run kararha/dockapp npm run test -- --coverage
